@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0402d7bf-c62d-4e36-942e-d01ec1284f61" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FileStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Scrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Scrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Scrappy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Scrappy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TeamStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TeamStats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TeamStatsScraper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TeamStatsScraper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/WebDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WebDataSource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,9 +24,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2irCQepvzu8zTMHLeuTpL3FBd75" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -42,15 +35,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Features",
-    "ignore.virus.scanning.warn.message": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Features&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Scrappy" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Scrappy" />
