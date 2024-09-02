@@ -1,44 +1,38 @@
-import org.htmlunit.HttpMethod;
-import org.htmlunit.WebClient;
-import org.htmlunit.WebRequest;
-import org.htmlunit.WebResponse;
-
-import java.net.URL;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
 
 public class AjaxRequester {
 
-    public Map<String, String> makeAjaxRequest(WebClient webClient, String seasonYear) {
+    public Map<String, String> makeAjaxRequest(HttpClient httpClient, String seasonYear) {
         Map<String, String> stats = new HashMap<>();
         try {
-            URL url = new URL("https://footystats.org/ajax_player_neo.php");
+            URI uri = URI.create("https://footystats.org/ajax_player_neo.php");
+
+            // Create the form data
+            String formData = createFormData(seasonYear, "england", "bukayo-saka");
 
             // Create the request
-            WebRequest request = new WebRequest(url, HttpMethod.POST);
-
-            // Set the required headers
-            request.setAdditionalHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-            request.setAdditionalHeader("Cookie", "your-cookie-here");
-            request.setAdditionalHeader("Referer", "https://footystats.org/players/belgium/leandro-trossard");
-            request.setAdditionalHeader("User-Agent", "your-user-agent-here");
-            request.setAdditionalHeader("X-Requested-With", "XMLHttpRequest");
-
-            // Set the request body using the provided seasonYear
-            String formData = createFormData(seasonYear, "england", "bukayo-saka");
-            request.setRequestBody(formData);
+            HttpRequest request = HttpRequest.newBuilder(uri)
+                    .POST(HttpRequest.BodyPublishers.ofString(formData))
+                    .header("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
+                    .header("X-Requested-With", "XMLHttpRequest")
+                    .build();
 
             // Send the request
-            WebResponse response = webClient.loadWebResponse(request);
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
             // Check status code
-            if (response.getStatusCode() == 200) {
-                String jsonResponse = response.getContentAsString();
+            if (response.statusCode() == 200) {
+                String jsonResponse = response.body();
 
                 // Parse the JSON response and fill the stats map
                 stats = PlayerStatsParser.parsePlayerStats(jsonResponse);
             } else {
-                System.out.println("Failed to fetch data. Status Code: " + response.getStatusCode());
+                System.out.println("Failed to fetch data. Status Code: " + response.statusCode());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -50,4 +44,3 @@ public class AjaxRequester {
         return "z=" + year + "&zz=" + country + "&zzz=" + playerName;
     }
 }
-

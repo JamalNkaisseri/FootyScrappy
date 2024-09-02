@@ -11,8 +11,6 @@ public class WebDataSource {
         return client;
     }
 
-    public void urlConstructor(String playerName){
 
-    }
 
 }
