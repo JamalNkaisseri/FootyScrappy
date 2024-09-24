@@ -9,20 +9,27 @@ public class Scrappy {
         Scanner input = new Scanner(System.in);
 
         try {
-            String mainPageUrl = "https://footystats.org/players/england/bukayo-saka";
+            System.out.print("Enter player name: ");
+            String name = input.nextLine();
 
-            // Simulate navigating to the main page (this part is now omitted since we're focusing on AJAX)
-            System.out.println("Navigating to: " + mainPageUrl);
-
-            // Just a placeholder since we're not actually loading the HTML page with HttpClient
-            String pageTitle = "Bukayo Saka Player Stats | FootyStats";
-            System.out.println("Page Title: " + pageTitle);
+            System.out.print("Enter country: ");
+            String nation = input.nextLine(); // Use nextLine to capture full country name
 
             System.out.print("Enter season (e.g., 2024 for 23/24): ");
-            String seasonYear = input.next();
+            String seasonYear = input.nextLine();
+
+            // Format the player name and country for URL
+            String formattedName = ajaxRequester.formatStringForUrl(name);
+            String formattedNation = ajaxRequester.formatStringForUrl(nation);
+
+            String mainPageUrl = "https://footystats.org/players/" + formattedNation + "/" + formattedName;
+
+            // Simulate navigating to the main page
+            System.out.println("Navigating to: " + mainPageUrl);
+            System.out.println(name + " | Premier League Stats");
 
             if (seasonYear != null) {
-                Map<String, String> playerStats = ajaxRequester.makeAjaxRequest(httpClient, seasonYear);
+                Map<String, String> playerStats = ajaxRequester.makeAjaxRequest(httpClient, seasonYear, formattedNation, formattedName);
 
                 if (playerStats != null && !playerStats.isEmpty()) {
                     System.out.println(playerStats);
