@@ -26,7 +26,7 @@ public class Scrappy {
 
             // Simulate navigating to the main page
             System.out.println("Navigating to: " + mainPageUrl);
-            System.out.println(name + " | Premier League Stats");
+            System.out.println(name + " |  League Stats");
 
             if (seasonYear != null) {
                 Map<String, String> playerStats = ajaxRequester.makeAjaxRequest(httpClient, seasonYear, formattedNation, formattedName);
